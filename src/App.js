@@ -23,6 +23,7 @@ function App() {
   const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type)=>{
+    console.log('alert call');
     setAlert({msg: message, type: type});
     setTimeout(() => {
       setAlert(null);
@@ -34,12 +35,12 @@ function App() {
       setMode('dark')
       document.body.style.backgroundColor = '#05293e';
       showAlert('Dark mode has been enabled ', 'success');
-      document.title = "TextUtils - Dark Mode"
+      // document.title = "TextUtils - Dark Mode"
     } else{
       setMode('light')
       document.body.style.backgroundColor = 'white';
       showAlert('Light mode has been enabled', 'success');
-      document.title = "TextUtils - Light Mode"
+      // document.title = "TextUtils - Light Mode"
 
     }
   }
@@ -49,7 +50,7 @@ function App() {
       <Router>
       <Navbar {...data} mode={mode} toggleMode={toggleMode} />
       {/*  <Navbar /> */}
-      
+      <Alert alert={alert}/>
       <div className='container my-3'>
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
@@ -57,7 +58,7 @@ function App() {
           
             <Route path="/about" element={<About />} />
               
-            <Route path="/" element={<TextHome heading="Enter Text to analyze below" showAlert={showAlert} mode={mode} />} />
+            <Route path="/" element={<TextHome heading="TextUtils - Word Counter, Character Counter, Remove Extra Spaces" showAlert={showAlert} mode={mode} />} />
               
           
           
