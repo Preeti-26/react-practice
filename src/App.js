@@ -47,7 +47,7 @@ function App() {
   return (
     <>
       <Router>
-      <Navbar navData={data} mode={mode} toggleMode={toggleMode} />
+      <Navbar {...data} mode={mode} toggleMode={toggleMode} />
       {/*  <Navbar /> */}
       
       <div className='container my-3'>
