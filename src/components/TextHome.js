@@ -25,12 +25,23 @@ export default function TextHome(props) {
     }
     function copyText(){
         let textAreaEle = document.getElementById('myBox');
+        // navigator.clipboard.writeText(textAreaEle);
+
+        // Or below solution also 
+
         // Copy the text inside the text field
+        textAreaEle.select(); // selected text for copy
         navigator.clipboard.writeText(text);
-        props.showAlert('Text copyed', 'success');
+        document.getSelection().removeAllRanges(); // selected text remove
+        props.showAlert('Copied to Clipboard', 'success');
     }
     function removeSpaces(){
         setText(text.replace(/\s+/g,' '));
+
+        // OR below solution also
+
+        // let newText = text.split(/[ ]+/);
+        // setText(newText.join(" "));
         props.showAlert('Removed extra spaces', 'success');
     }
   return (
